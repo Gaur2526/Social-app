@@ -46,6 +46,13 @@ export const CreatePost = () => {
         mutationFn : (data : {post: PostInput; imageFile : File}) => {
           return createPost(data.post, data.imageFile)
       }, 
+        onSuccess: () => {
+        // 👇 Reset all form fields
+        setTitle("");
+        setContent("");
+        setCommunityId(null);
+        setSelectedFile(null);
+  },
     });
 
     const handleSubmit = (event: React.FormEvent) => {
